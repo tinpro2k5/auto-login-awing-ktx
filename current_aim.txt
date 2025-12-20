@@ -1,0 +1,46 @@
+(1) Lightweight Internet Probe (không mở trang login)
+Lúc mấy phút cuối thay vì fetch trang login captive portal, ta chỉ cần probe nhẹ để kiểm tra xem còn internet thật sự hay không.
+
+ 
+Phát hiện còn internet thật sự hay đã bị captive portal chặn/redirect, với chi phí mạng cực thấp và không trigger MAC lock.
+
+1 request HTTP “nhẹ” tới URL ổn định. Dựa vào:
+
+status code
+có bị redirect sang portal không
+có trả về body bất thường không
+timeout/latency
+Probe endpoints (ưu tiên)
+http://neverssl.com/ (HTTP, ổn định, hay dùng để test captive)
+
+Tiêu chí đánh giá kết quả probe
+ONLINE nếu:
+response status 200/204/301/302 nhưng không redirect vào domain portal
+và body/headers không mang dấu hiệu captive (tuỳ portal)
+CAPTIVE / OFFLINE nếu gặp 1 trong các case:
+timeout / DNS fail
+status 30x redirect tới portal (detect bằng Location hoặc response.url() cuối cùng)
+status 200 nhưng body chứa cụm đặc trưng portal (optional heuristic)
+status 403/451/511 (511 hay dùng cho captive) hoặc 429 (rate-limit)
+
+
+valuable sniffed :
+POST http://v1.awingconnect.vn/Home/VerifyUrl
+Đây gần như chắc là endpoint “portal state check”: xem URL hiện tại có hợp lệ, client có đang captive không, có cookie/session hợp lệ không.
+
+Bạn thấy nó được gọi rất sớm sau khi vào portal.
+✅ Dùng nó làm pre-check thay vì load cả page.
+POST http://v1.awingconnect.vn/Content/GetCustomer → trả { token, captiveContext }
+
+Cực kỳ giá trị: nó trả ra token + captiveContext (thường chứa thông tin client/session/step)
+
+Nếu portal bị lock hoặc hết hạn, endpoint này thường sẽ:
+
+trả 4xx/429/403, hoặc
+
+trả JSON khác (thiếu token/captiveContext), hoặc
+
+trả msg/codes báo lỗi
+✅ Dùng nó làm “am I still in a valid captive session?” check.
+
+

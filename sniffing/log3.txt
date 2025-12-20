@@ -1,0 +1,414 @@
+PS C:\Users\letru\OneDrive\Desktop\hehehehe\auto-login-awing-ktx> npx ts-node sniffing/log.ts
+[0.017s][REQ] document GET http://186.186.0.1/login
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: undefined,
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[0.029s][RES] document 200 http://186.186.0.1/login
+[0.035s][NAV] http://186.186.0.1/login
+[0.062s][DOC] 200 http://186.186.0.1/login
+         text snippet: <!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Hệ thống mạng INTERNET"/><link rel="apple-touch-icon" href="/logo192.png"/><meta http-equiv="cache-control" content="no-cache"/><meta http-equiv="expires" content="0"/><meta http-equiv="pragma" content="no-cache"/><title>Login INTERNET</tit…
+[1.534s][REQ] fetch GET http://186.186.0.1/assets/config.json
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://186.186.0.1/login',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+
+=== Browser opened ===
+👉 Bạn hãy tự bấm nút login/confirm như bình thường.
+👉 Quan sát log trong terminal.
+👉 Khi xong, QUAY LẠI terminal bấm Enter để kết thúc và lưu HAR.
+
+[1.541s][NAV] http://186.186.0.1/login
+[1.544s][RES] fetch 200 http://186.186.0.1/assets/config.json
+[3.557s][REQ] fetch GET http://186.186.0.1/assets/config.json
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,        
+  referer: 'http://186.186.0.1/login',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[3.565s][RES] fetch 200 http://186.186.0.1/assets/config.json
+[3.580s][REQ] fetch GET http://186.186.0.1/build-info.json
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://186.186.0.1/login',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[3.584s][RES] fetch 200 http://186.186.0.1/build-info.json
+[3.637s][REQ] fetch POST https://ex.login.net.vn/api-connect/check
+         postData: {"device":{"deviceId":"2F49B1BCBB2F7D8AF338C2E122C3B52E","userId":0,"deviceName":"MyDevice","os":"","osVersion":"","appVersion":"","network":"WiFi","type":"","status":"","createdAt":null,"updatedAt":null,"deletedAt":null,"expiredAt":null},"wifiInfo":{"identity":"PC-ROUTER-AMR","mac":"0A:0F:33:7C:9C:F4","ip":"186.186.7.108","username":"","link-login":"http://186.186.0.1/login","link-orig":"","error":"","error-code":"","link-login-only":"http://186.186.0.1/login","link-orig-esc":"","mac-esc":"0A%3A0F%3A33%3A7C%3A9C%3AF4","link-advert":"http://186.186.0.1/advert","link-logout":"http://186.186.0.1/logout","login-by":"","bytes-in-nice":"0 B","bytes-out-nice":"0 B","istrial":"yes","chap_id":"357","chap_challenge":"134,355,344,271,131,264,102,150,363,221,276,072,155,251,371,122","session-time-left":"","uptime":"0s","blocked":"no","login-by-mac":"no","interface-name":"WM_AWING","hostname":"186.186.0.1","server-address":"186.186.0.1:80","server-name":"WM_AWING","domain":"","session-id":"","logged-in":"no","host-ip":"0.0.0.0","refresh-timeout":"","refresh-timeout-secs":"0","remain-bytes-in":"","remain-bytes-out":"","bytes-in":"0","bytes-out":"0","route":"/login","is-captive":false,"buildTime…
+         hdr: {
+  'content-type': 'application/json',
+  origin: undefined,
+  referer: 'http://186.186.0.1/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[4.052s][RES] fetch 200 https://ex.login.net.vn/api-connect/check
+[4.068s][REQ] document GET http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\357&chap_challenge=\134\355\344\271\131\264\102\150\363\221\276\072\155\251\371\122
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://186.186.0.1/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+         json keys: [ 'result', 'msg', 'data' ]
+         json preview: { result: true, msg: '' }
+[4.183s][RES] document 200 http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\357&chap_challenge=\134\355\344\271\131\264\102\150\363\221\276\072\155\251\371\122
+[4.192s][NAV] http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\357&chap_challenge=\134\355\344\271\131\264\102\150\363\221\276\072\155\251\371\122
+[4.217s][DOC] 200 http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\357&chap_challenge=\134\355\344\271\131\264\102\150\363\221\276\072\155\251\371\122
+         text snippet: <!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" /> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta http-equiv="cache-control" content="max-age=0" /> 
+<meta http-equiv="cache-control" content="no-cache" /> <meta http-equiv="expires" content="0" /> <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" /> <meta http-equiv="pragma" content="no-cache" /> <title>…
+[4.871s][REQ] xhr GET http://v1.awingconnect.vn/translation/vie.json?v=1766255983541
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[4.916s][RES] xhr 200 http://v1.awingconnect.vn/translation/vie.json?v=1766255983541
+[4.927s][REQ] xhr POST http://v1.awingconnect.vn/Home/VerifyUrl
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+         json keys: [
+  'Common',
+  'Failed',
+  'FailedAuthen',
+  'FailedCookie',
+  'Connected',
+  'Connecting',
+  'UnsupportedBrowser',
+  'Deprecated',
+  'AndroidWaiting',
+  'Successed',
+  'Agreement',
+  'InsecureContent',
+  'ContentCustomer'
+]
+[4.976s][RES] xhr 200 http://v1.awingconnect.vn/Home/VerifyUrl
+[4.978s][REQ] xhr GET http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Header.html?timestamp=1766255983649
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[4.979s][REQ] xhr GET http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Footer.html?timestamp=1766255983649        
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[4.982s][REQ] xhr POST http://v1.awingconnect.vn/Content/GetCustomer
+         postData: {"token":"aec7d80d32711e71469f9213262aa6e309f8be5a","captiveContext":{"campaignData":{"sessionId":"e3865fc6-987c-4fd6-af9e-c09b8526def0","macAddress":"0A-0F-33-7C-9C-F4","apMac":"CC-2D-E0-19-00-6C","placeId":"5396312563454782245","domainId":"5476089696408447131","url":"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; 
+x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","campaignId":"0","campaignGroupId":0,"campaignAdId":0,"campaignType":0,"isNetworkCampaign":false,"loginId":"0","loginHtml":null,"welcomeId":"0","welcomeHtml":null},"customerActions":[0],"domain":{"domainId":"5476089696408447131","domainTariffId":1,"directoryPath":".0.90.5476089696408447131.","name":"Wi-Mesh","joinNetwork":true,"description":"","license":"AvX0ZtUdP4wukxT5af24a9BKVEZih4ieKcQUcHFTwuadEz9v97xzIgfKpjckguFxzdIhS2IfysNUsEgfXzrMQNQZBThUtOQEI62eBW6BOrIjP0LkhTpxZa/Q/7YPzRVte5Z1YN0mQwgAodQN6/hFfu3/fDkTBBN25E+gk9GeyqtQChyQHp9/jN…
+         hdr: {
+  'content-type': 'application/json; charset=UTF-8',
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+         json keys: [ 'token', 'captiveContext' ]
+[5.046s][RES] xhr 200 http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Header.html?timestamp=1766255983649
+[5.050s][RES] xhr 200 http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Footer.html?timestamp=1766255983649
+         text snippet: <style> .banner-top { margin-left: 10px; max-width: 100px; } </style> <div class="d-flex h-100 justify-content-between p-1 position-relative"> <div class="my-auto"> <img class="banner-top" src="/static/Files/layout/5197905656409960384/5476089696408447131/Logo.png" alt="customer-logo"> </img> </div> <div class="my-auto h-100"> <img class="w-auto h-100" src="/static/images/awinglg.png" alt="Awing-logo"> </img> </div> </div>     
+         text snippet:  <div style="padding: 0 2%; line-height: revert;" class="d-flex justify-content-between"> <div> <b>QC:</b> 0901.05.05.17, contact@awing.vn </div> <div> <b style="float:right;text-align:right;">Powered by AWING</b> </div> </div>
+[5.067s][RES] xhr 200 http://v1.awingconnect.vn/Content/GetCustomer
+[5.069s][REQ] xhr POST http://v1.awingconnect.vn/Content/GetCampaignHtml
+         postData: {"captiveContextDTO":{"token":"804ae752a0e155a0288be5bee9759c9febfbaec0","captiveContext":{"campaignData":{"sessionId":"e3865fc6-987c-4fd6-af9e-c09b8526def0","macAddress":"0A-0F-33-7C-9C-F4","apMac":"CC-2D-E0-19-00-6C","placeId":"5396312563454782245","domainId":"5476089696408447131","url":"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","campaignId":"0","campaignGroupId":0,"campaignAdId":0,"campaignType":0,"isNetworkCampaign":false,"loginId":"0","loginHtml":null,"welcomeId":"0","welcomeHtml":null},"customerActions":[0,1],"domain":{"domainId":"5476089696408447131","domainTariffId":1,"directoryPath":".0.90.5476089696408447131.","name":"Wi-Mesh","joinNetwork":true,"description":"","license":"AvX0ZtUdP4wukxT5af24a9BKVEZih4ieKcQUcHFTwuadEz9v97xzIgfKpjckguFxzdIhS2IfysNUsEgfXzrMQNQZBThUtOQEI62eBW6BOrIjP0LkhTpxZa/Q/7YPzRVte5Z1YN0mQwgAodQN6/hFfu3/fDkTBBN…
+         hdr: {
+  'content-type': 'application/json; charset=UTF-8',
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+         json keys: [ 'token', 'captiveContext' ]
+[5.138s][RES] xhr 200 http://v1.awingconnect.vn/Content/GetCampaignHtml
+         json keys: [ 'token', 'captiveContext' ]
+[6.954s][NAV] http://v1.awingconnect.vn/Connecting?sessionId=e3865fc6-987c-4fd6-af9e-c09b8526def0
+[6.958s][REQ] xhr POST http://v1.awingconnect.vn/Analytic/Send
+         postData: {"captiveContextDTO":{"token":"094c0850a172d5eee921f13c2d2669c1efb05424","captiveContext":{"campaignData":{"sessionId":"e3865fc6-987c-4fd6-af9e-c09b8526def0","macAddress":"0A-0F-33-7C-9C-F4","apMac":"CC-2D-E0-19-00-6C","placeId":"5396312563454782245","domainId":"5476089696408447131","url":"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","campaignId":"4961554445594984512","campaignGroupId":1,"campaignAdId":1,"campaignType":0,"isNetworkCampaign":false,"loginId":"0","loginHtml":{"commonHtml":"","pageViews":[{"contentHtml":"<style>\r\n    @media (max-width: 768px) {\r\n        .header-text {\r\n            font-size: 14px;\r\n        }\r\n        .connect-button {\r\n            font-size: 
+12px;\r\n        }\r\n        .policy {\r\n            font-size: 12px;\r\n        }\r\n        .logo-img {\r\n            margin: 16px !important;\r\n        }\r…
+         hdr: {
+  'content-type': 'application/json; charset=UTF-8',
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/Connecting?sessionId=e3865fc6-987c-4fd6-af9e-c09b8526def0',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[7.011s][RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+         json keys: [ 'token', 'captiveContext' ]
+[7.996s][REQ] xhr GET http://v1.awingconnect.vn/static/Files/template/5074619029972904036/swiper-bundle.min.js
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/Connecting?sessionId=e3865fc6-987c-4fd6-af9e-c09b8526def0',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[8.027s][RES] xhr 200 http://v1.awingconnect.vn/static/Files/template/5074619029972904036/swiper-bundle.min.js
+         text snippet: /** * Swiper 6.5.6 * Most modern mobile touch slider and framework with hardware accelerated transitions * https://swiperjs.com 
+* * Copyright 2014-2021 Vladimir Kharlampidi * * Released under the MIT License * * Released on: April 9, 2021 */ ! function(e, t) { "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = "undefined" != typeof globalThis ? globalThis : e || self).Swiper = t() }(this, (function() { …
+[12.174s][CONSOLE:warning] The resource http://v1.awingconnect.vn/static/Files/template/5074619029972904036/swiper-bundle.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[14.473s][REQ] xhr POST http://v1.awingconnect.vn/Analytic/Send
+         postData: {"captiveContextDTO":{"token":"1d545081fd21647e8924caae3610ee603dba33e5","captiveContext":{"campaignData":{"sessionId":"e3865fc6-987c-4fd6-af9e-c09b8526def0","macAddress":"0A-0F-33-7C-9C-F4","apMac":"CC-2D-E0-19-00-6C","placeId":"5396312563454782245","domainId":"5476089696408447131","url":"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","campaignId":"4961554445594984512","campaignGroupId":1,"campaignAdId":1,"campaignType":0,"isNetworkCampaign":false,"loginId":"0","loginHtml":{"commonHtml":"","pageViews":[{"contentHtml":"<style>\r\n    @media (max-width: 768px) {\r\n        .header-text {\r\n            font-size: 14px;\r\n        }\r\n        .connect-button {\r\n            font-size: 
+12px;\r\n        }\r\n        .policy {\r\n            font-size: 12px;\r\n        }\r\n        .logo-img {\r\n            margin: 16px !important;\r\n        }\r…
+         hdr: {
+  'content-type': 'application/json; charset=UTF-8',
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/Connecting?sessionId=e3865fc6-987c-4fd6-af9e-c09b8526def0',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.523s][RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+[14.533s][REQ] document POST http://186.186.0.1/login
+         postData: username=awing15-15&password=e74fdb1dfd255b4fc6f3941c506364f8&dst=http%3A%2F%2Fv1.awingconnect.vn%2FSuccess&popup=false
+         hdr: {
+  'content-type': 'application/x-www-form-urlencoded',
+  origin: 'http://v1.awingconnect.vn',
+  referer: 'http://v1.awingconnect.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.563s][RES] document 200 http://186.186.0.1/login
+[14.565s][NAV] http://186.186.0.1/login
+[14.620s][DOC] 200 http://186.186.0.1/login
+[14.632s][REQ] document GET http://v1.awingconnect.vn/Success
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://186.186.0.1/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.682s][RES] document 200 http://v1.awingconnect.vn/Success
+[14.684s][NAV] http://v1.awingconnect.vn/Success
+[14.713s][DOC] 200 http://v1.awingconnect.vn/Success
+         text snippet: <!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" /> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta http-equiv="cache-control" content="max-age=0" /> 
+<meta http-equiv="cache-control" content="no-cache" /> <meta http-equiv="expires" content="0" /> <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" /> <meta http-equiv="pragma" content="no-cache" /> <title>…
+[14.735s][REQ] xhr GET http://v1.awingconnect.vn/translation/vie.json?v=1766255993405
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/Success',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.770s][RES] xhr 200 http://v1.awingconnect.vn/translation/vie.json?v=1766255993405
+[14.771s][REQ] xhr POST http://v1.awingconnect.vn/Analytic/Send
+         postData: {"captiveContextDTO":{"token":"963be9332e2b23a24742548ee6f374d7a4c9b886","captiveContext":{"campaignData":{"sessionId":"e3865fc6-987c-4fd6-af9e-c09b8526def0","macAddress":"0A-0F-33-7C-9C-F4","apMac":"CC-2D-E0-19-00-6C","placeId":"5396312563454782245","domainId":"5476089696408447131","url":"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\\357&chap_challenge=\\134\\355\\344\\271\\131\\264\\102\\150\\363\\221\\276\\072\\155\\251\\371\\122","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","campaignId":"4961554445594984512","campaignGroupId":1,"campaignAdId":1,"campaignType":0,"isNetworkCampaign":false,"loginId":"0","loginHtml":null,"welcomeId":"0","welcomeHtml":{"commonHtml":"","pageViews":[{"contentHtml":"<script>\r\n    $('#layoutHeader').hide();\r\n    awingCaptiveUtils.openLandingpageV2(encodeURIComponent(\"https://mywifi.vn/download\"), encodeURIComponent(\"https://mywifi.vn/download\"));\r\n</script>"}]}},"customerActions":[0,1,2,3,5,6],"domain":{"domainId":"5476089696408447131","domainTarif…
+         hdr: {
+  'content-type': 'application/json; charset=UTF-8',
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/Success',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.773s][NAV] http://v1.awingconnect.vn/welcome
+         json keys: [
+  'Common',
+  'Failed',
+  'FailedAuthen',
+  'FailedCookie',
+  'Connected',
+  'Connecting',
+  'UnsupportedBrowser',
+  'Deprecated',
+  'AndroidWaiting',
+  'Successed',
+  'Agreement',
+  'InsecureContent',
+  'ContentCustomer'
+]
+[14.795s][RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+[14.807s][REQ] document GET http://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.884s][RES] document 302 http://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+         location: https://deeplink.awing.vn:443/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[14.885s][REQ] document GET https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'http://v1.awingconnect.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[14.887s][DOC-REDIR] 302 http://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined -> https://deeplink.awing.vn:443/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[14.997s][RES] document 200 https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[15.004s][NAV] https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[15.022s][DOC] 200 https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+         text snippet: <html> <head> <meta charset="utf-8" /> <link rel="icon" href="awicon.ico" /> <link rel="apple-touch-icon" href="awicon.ico" /> <meta name="description" content="AWING Deeplink" /> <title>AWING Deeplink</title> </head> <body> <script src="device-detect-3.8.js?20211216"></script> 
+<script> var appId = getQueryVariable("app_id"); var appType = getQueryVariable("app_type"); var url = getQueryVariable("url"); var deepLink = getQueryVariable("deep_link"); var isTryingToOpenInSafari = getQueryVariable("…
+[15.073s][REQ] document GET https://mywifi.vn/download
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://deeplink.awing.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[15.130s][RES] document 200 https://mywifi.vn/download
+[15.132s][NAV] https://mywifi.vn/download
+[15.146s][DOC] 200 https://mywifi.vn/download
+         text snippet: <!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./assets/images/MyWifi.jpg"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="MyWIFI - mua và quản 
+lý thẻ INTERNET."/><link rel="apple-touch-icon" href="assets/images/MyWifi.jpg"/><meta property="og:image" content="assets/images/MyWifi.jpg"/><link rel="manifest" href="/manifest.json"/><link href="https://fonts.googleap…
+[15.310s][NAV] https://mywifi.vn/download
+[15.323s][REQ] xhr POST https://mywifi.vn/apimobi/v1/terms
+         postData: source=my-wifi
+         hdr: {
+  'content-type': 'application/x-www-form-urlencoded',
+  origin: undefined,
+  referer: 'https://mywifi.vn/download',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[15.325s][REQ] xhr POST https://mywifi.vn/apimobi/v1/policies
+         postData: source=my-wifi
+         hdr: {
+  'content-type': 'application/x-www-form-urlencoded',
+  origin: undefined,
+  referer: 'https://mywifi.vn/download',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[15.327s][REQ] xhr POST https://mywifi.vn/apimobi/v1/faqs
+         postData: source=my-wifi
+         hdr: {
+  'content-type': 'application/x-www-form-urlencoded',
+  origin: undefined,
+  referer: 'https://mywifi.vn/download',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[15.328s][REQ] xhr POST https://mywifi.vn/apimobi/v1/app-info
+         postData: source=my-wifi
+         hdr: {
+  'content-type': 'application/x-www-form-urlencoded',
+  origin: undefined,
+  referer: 'https://mywifi.vn/download',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[15.342s][RES] xhr 200 https://mywifi.vn/apimobi/v1/faqs
+[15.348s][RES] xhr 200 https://mywifi.vn/apimobi/v1/terms
+[15.348s][RES] xhr 200 https://mywifi.vn/apimobi/v1/app-info
+[15.356s][RES] xhr 200 https://mywifi.vn/apimobi/v1/policies
+         json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+         json preview: { result: true, code: 0, msg: 'Success' }
+         json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+         json preview: { result: true, code: 0, msg: 'Success' }
+         json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+         json preview: { result: true, code: 0, msg: 'Success' }
+         json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+         json preview: { result: true, code: 0, msg: 'Success' }
+[16.319s][NAV] https://mywifi.vn/
+[16.391s][REQ] image GET https://shop.login.net.vn/assets/images/app/footer-bg.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.392s][REQ] image GET https://shop.login.net.vn/assets/images/app/fruits.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.395s][REQ] image GET https://shop.login.net.vn/assets/images/app/QR_MyWIFI.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.397s][REQ] image GET https://shop.login.net.vn/assets/images/app/hero-right-image.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.399s][REQ] image GET https://shop.login.net.vn/assets/images/app/features.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.400s][REQ] image GET https://shop.login.net.vn/assets/images/app/features_zalo.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.401s][REQ] image GET https://shop.login.net.vn/assets/images/app/features_viettel.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.402s][REQ] image GET https://shop.login.net.vn/assets/images/app/plan-bg.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.404s][REQ] image GET https://shop.login.net.vn/assets/images/app/app-screenshot.png
+         hdr: {
+  'content-type': undefined,
+  origin: undefined,
+  referer: 'https://mywifi.vn/',
+  'x-requested-with': undefined,
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+}
+[16.406s][NAV] https://mywifi.vn/
+[17.001s][RES] image 200 https://shop.login.net.vn/assets/images/app/fruits.png
+[17.868s][RES] image 200 https://shop.login.net.vn/assets/images/app/QR_MyWIFI.png
+[18.067s][RES] image 200 https://shop.login.net.vn/assets/images/app/hero-right-image.png
+[18.391s][RES] image 200 https://shop.login.net.vn/assets/images/app/footer-bg.png
+[18.669s][RES] image 200 https://shop.login.net.vn/assets/images/app/features_zalo.png
+[21.095s][RES] image 200 https://shop.login.net.vn/assets/images/app/features.png
+[21.838s][RES] image 200 https://shop.login.net.vn/assets/images/app/features_viettel.png
+[22.454s][RES] image 200 https://shop.login.net.vn/assets/images/app/plan-bg.png
+[22.700s][RES] image 200 https://shop.login.net.vn/assets/images/app/app-screenshot.png

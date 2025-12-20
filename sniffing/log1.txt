@@ -1,0 +1,97 @@
+[RES] document 200 http://186.186.0.1/login
+[NAV] http://186.186.0.1/login
+[NAV] http://186.186.0.1/login
+[RES] fetch 200 http://186.186.0.1/assets/config.json
+[RES] fetch 200 http://186.186.0.1/assets/config.json
+[RES] fetch 200 http://186.186.0.1/build-info.json
+[REQ] fetch POST https://ex.login.net.vn/api-connect/check
+[RES] fetch 200 https://ex.login.net.vn/api-connect/check
+      json keys: [ 'result', 'msg', 'data' ]
+[RES] document 200 http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\050&chap_challenge=\200\050\172\250\330\317\343\307\204\372\361\231\113\371\000\270
+[NAV] http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.7.108&userurl=&login_url=http://186.186.0.1/login&chap_id=\050&chap_challenge=\200\050\172\250\330\317\343\307\204\372\361\231\113\371\000\270
+[RES] xhr 200 http://v1.awingconnect.vn/translation/vie.json?v=1766253948109
+[REQ] xhr POST http://v1.awingconnect.vn/Home/VerifyUrl
+      json keys: [
+  'Common',       
+  'Failed',       
+  'FailedAuthen', 
+  'FailedCookie', 
+  'Connected',    
+  'Connecting',   
+  'UnsupportedBrowser',
+  'Deprecated',
+  'AndroidWaiting',
+  'Successed',
+  'Agreement',
+  'InsecureContent',
+  'ContentCustomer'
+]
+[RES] xhr 200 http://v1.awingconnect.vn/Home/VerifyUrl
+[REQ] xhr GET http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Header.html?timestamp=1766253948219
+[REQ] xhr GET http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Footer.html?timestamp=1766253948220
+[REQ] xhr POST http://v1.awingconnect.vn/Content/GetCustomer
+      json keys: [ 'token', 'captiveContext' ]
+[RES] xhr 200 http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Header.html?timestamp=1766253948219
+[RES] xhr 200 http://v1.awingconnect.vn/static/Files/layout/5197905656409960384/5476089696408447131/Footer.html?timestamp=1766253948220
+[RES] xhr 200 http://v1.awingconnect.vn/Content/GetCustomer
+      json keys: [ 'token', 'captiveContext' ]
+[RES] xhr 200 http://v1.awingconnect.vn/Content/GetCampaignHtml
+      json keys: [ 'token', 'captiveContext' ]
+[NAV] http://v1.awingconnect.vn/Connecting?sessionId=44c27c17-0197-47db-9640-dd58fb2ce196
+[RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+      json keys: [ 'token', 'captiveContext' ]
+[RES] xhr 200 http://v1.awingconnect.vn/static/Files/template/5074619029972904036/swiper-bundle.min.js
+[RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+[RES] document 200 http://186.186.0.1/login
+[NAV] http://186.186.0.1/login
+      (json parse failed)
+[RES] document 200 http://v1.awingconnect.vn/Success
+[NAV] http://v1.awingconnect.vn/Success
+[RES] xhr 200 http://v1.awingconnect.vn/translation/vie.json?v=1766253958187
+[NAV] http://v1.awingconnect.vn/welcome
+      json keys: [
+  'Common',
+  'Failed',
+  'FailedAuthen',
+  'FailedCookie',
+  'Connected',
+  'Connecting',
+  'UnsupportedBrowser',
+  'Deprecated',
+  'AndroidWaiting',
+  'Successed',
+  'Agreement',
+  'InsecureContent',
+  'ContentCustomer'
+]
+[RES] xhr 200 http://v1.awingconnect.vn/Analytic/Send
+[RES] document 302 http://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+      ↳ redirect to: https://deeplink.awing.vn:443/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[RES] document 200 https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+[NAV] https://deeplink.awing.vn/?url=https%3A%2F%2Fmywifi.vn%2Fdownload&deep_link=https%3A%2F%2Fmywifi.vn%2Fdownload&app_id=undefined&app_type=undefined
+      (json parse failed)
+[RES] document 200 https://mywifi.vn/download
+[NAV] https://mywifi.vn/download
+[NAV] https://mywifi.vn/download
+[RES] xhr 200 https://mywifi.vn/apimobi/v1/policies
+[RES] xhr 200 https://mywifi.vn/apimobi/v1/terms
+[RES] xhr 200 https://mywifi.vn/apimobi/v1/faqs
+[RES] xhr 200 https://mywifi.vn/apimobi/v1/app-info
+      json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+      json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+      json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+      json keys: [ 'result', 'code', 'msg', 'data', 'more', 'now' ]
+[RES] font 200 https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2
+[NAV] https://mywifi.vn/
+[NAV] https://mywifi.vn/
+[RES] font 200 https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2
+[RES] image 200 https://shop.login.net.vn/assets/images/app/fruits.png
+[RES] font 200 https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2
+[RES] image 200 https://shop.login.net.vn/assets/images/app/QR_MyWIFI.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/hero-right-image.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/footer-bg.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/features.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/features_zalo.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/features_viettel.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/plan-bg.png
+[RES] image 200 https://shop.login.net.vn/assets/images/app/app-screenshot.png
