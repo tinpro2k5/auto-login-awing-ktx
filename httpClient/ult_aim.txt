@@ -1,0 +1,139 @@
+
+
+Trong log của bạn có bước này:
+
+[REQ] document POST http://186.186.0.1/login
+postData: username=...&password=11c0227a...&dst=http%3A%2F%2Fv1.awingconnect.vn%2FSuccess&popup=false
+origin: http://v1.awingconnect.vn
+referer: http://v1.awingconnect.vn/
+
+
+Đây là CHAP login thật sự
+
+username cố định (voucher / account hotspot)
+
+password không phải password tĩnh
+
+Nó là CHAP response hash, được tính từ:
+
+chap_id
+
+chap_challenge
+
+secret thực (password gốc / voucher key)
+✅ VẪN auto login HTTP-only được, nhưng phải tự tính CHAP hash mỗi lầns
+
+
+
+Vì sao UI phải chạy JS trước khi POST /login
+
+Trong flow bạn sniff thấy:
+
+URL có chap_id + chap_challenge
+
+JS phía portal dùng 2 giá trị này để:
+
+lấy secret (voucher/password)
+
+tính MD5(CHAP) → rồi mới POST /login
+
+Đây là chuẩn MikroTik Hotspot CHAP.
+
+
+
+Công thức CHAP (chuẩn MikroTik)
+
+CHAP response =
+
+MD5( chap_id (1 byte) + password (string) + chap_challenge (bytes) )
+
+
+chap_id: số (0–255)
+
+password: password gốc (không phải hash)
+
+chap_challenge: chuỗi bytes (bạn thấy dạng \143\125\031... hoặc 143,125,031,...)
+
+➡️ Output là hex string (32 ký tự)
+→ chính là cái password= bạn thấy trong POST.
+
+
+
+👉 Đây chính là kiểu RouterOS/Hotspot style login POST (form-urlencoded). Nghĩa là bạn không cần mở Chromium để click nữa: chỉ cần POST đúng endpoint này (và giữ cookie/redirect) là xong.
+
+Thiết kế HTTP-only client (Node) sẽ như thế này
+A) Giữ cookie jar (cực quan trọng)
+
+Dùng undici + tough-cookie hoặc axios + tough-cookie để giữ cookie xuyên request như browser.
+
+B) Flow mẫu (khái quát)
+Flow HTTP-only CHAP auto login (chuẩn, clean)
+
+Bước 1 — GET login page
+
+GET http://186.186.0.1/login
+
+
+→ parse:
+
+chap_id
+
+chap_challenge
+
+Bước 2 — Tính CHAP hash
+
+chapHash = MD5(
+  byte(chap_id) +
+  passwordPlain +
+  chapChallengeBytes
+)
+
+
+Bước 3 — POST login
+
+POST http://186.186.0.1/login
+Content-Type: application/x-www-form-urlencoded
+
+username=awing15-15
+&password=<chapHash>
+&dst=http://v1.awingconnect.vn/Success
+&popup=false
+
+
+Bước 4 — Verify
+
+probe http://neverssl.com/
+
+hoặc GET http://186.186.0.1/status
+
+
+link-advert: http://186.186.0.1/advert
+
+👉 Nghĩa là thay vì “phút cuối load portal”, bạn có thể:
+
+thử GET một endpoint nhẹ nội bộ (status/advert) để xem session-time-left/uptime còn không
+
+nếu bị redirect về /login → mới login
+
+
+
+
+
+password = username
+
+password được nhét inline trong HTML / JS / JSON
+
+password được tạo theo rule đơn giản (ghép chuỗi, base64, hằng số…)
+
+
+
+Mở DevTools → Sources → Ctrl+Shift+F, tìm các từ:
+
+chap
+challenge
+md5
+password
+pwd
+secret
+login
+hotspot
