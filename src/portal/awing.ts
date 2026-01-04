@@ -12,9 +12,8 @@ export async function loginAwing(page: Page): Promise<void> {
   for (let attempt = 1; attempt <= 3; attempt++) {
     console.log(`[AWING] UI login attempt ${attempt}/3`)
 
-    // STEP 1: nút 1
-    await page.waitForSelector('#logo_button', { timeout: 15000 })
-    await page.click('#logo_button')
+    // STEP 1: nút 1 (locator auto-wait, nhanh hơn waitForSelector)
+    await page.locator('#logo_button').click({ timeout: 15000 })
 
     // STEP 2: nút 2
     const realBtn = '#connectToInternet'

@@ -1,47 +1,36 @@
 // src/network/checkExpiry.ts
 // Lightweight Internet Probe - Idea #1 from current_aim.txt
-// Sử dụng neverssl.com để kiểm tra internet nhẹ nhàng, không trigger MAC lock
+// Kiểm tra trạng thái mạng bằng cách gọi trực tiếp captive portal
 import fetch from 'node-fetch'
 
 export async function checkExpiryByFetch(): Promise<boolean> {
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 5000)
+  const timeout = setTimeout(() => controller.abort(), 8000)
 
   try {
-    const res = await fetch('http://neverssl.com/', {
-      redirect: 'manual',   // Không tự động follow redirect
+    const res = await fetch('http://186.186.0.1/', {
+      redirect: 'manual',
       signal: controller.signal,
     })
 
     const status = res.status
     const location = res.headers.get('location') || ''
 
-    // ONLINE nếu:
-    // - status 200/204/301/302 nhưng KHÔNG redirect vào domain portal
-    if ([200, 204, 301, 302].includes(status)) {
-      // Kiểm tra xem có bị redirect sang portal không
-      const portalDomains = ['186.186.0.1', 'awingconnect.vn', 'v1.awingconnect.vn']
-      const isRedirectToPortal = portalDomains.some(domain => location.includes(domain))
-
-      if (!isRedirectToPortal) {
-        // Không redirect sang portal → internet thật sự → NOT expired
-        return false
-      }
-      // Redirect sang portal → captive → expired
-      return true
+    // Nếu redirect 302 đến /status → có mạng (NOT expired)
+    if (status === 302 && location.includes('/status')) {
+      console.log('[EXPIRY] Portal check → has internet (NOT expired)')
+      return false
     }
 
-    // CAPTIVE / OFFLINE nếu:
-    // - status 403/451/511 (511 hay dùng cho captive) hoặc 429
-    if ([403, 451, 511, 429].includes(status)) {
-      return true // expired/captive
-    }
-
-    // Các status code khác → assume expired
+    // Các trường hợp khác → hết session
+    console.log('[EXPIRY] Portal check → no internet (expired)')
     return true
-  } catch (err) {
-    // timeout / DNS fail / network error → assume expired/captive
-    console.log('[PROBE] Error during lightweight probe:', err)
+  } catch (err: any) {
+    if (err?.name === 'AbortError') {
+      console.log('[PROBE] Timeout checking portal → assume expired')
+    } else {
+      console.log('[PROBE] Error checking portal:', err?.message || err)
+    }
     return true
   } finally {
     clearTimeout(timeout)
