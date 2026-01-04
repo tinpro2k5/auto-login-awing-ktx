@@ -73,6 +73,13 @@ export async function loginAwing(page: Page): Promise<void> {
       const isConnectingPage = parsed.pathname.toLowerCase().includes('connecting')
       const isSuccessPage = parsed.pathname.toLowerCase().includes('success')
       const isWelcomePage = parsed.pathname.toLowerCase().includes('welcome')
+      const isDownloadPage = parsed.pathname.toLowerCase().includes('download')
+
+      // case 0: trang download (xuất hiện sau success)
+      if (isAwingDomain && isDownloadPage) {
+        console.log('[AWING] ✅ At Download page → login successful!')
+        return
+      }
 
       // Case 1: Redirect sang /Success hoặc /welcome → SUCCESS
       // Đây là strong indicators, xuất hiện giữa Connecting và mywifi.vn
