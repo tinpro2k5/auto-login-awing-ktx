@@ -1,10 +1,10 @@
 type: collection.insomnia.rest/5.0
 schema_version: "5.1"
-name: My first collection
+name: "API testing "
 meta:
   id: wrk_6c5973d65c0542dba4790dbbc3d1b6a9
   created: 1767534482127
-  modified: 1767534482127
+  modified: 1767535391057
   description: ""
 collection:
   - url: http://186.186.0.1
