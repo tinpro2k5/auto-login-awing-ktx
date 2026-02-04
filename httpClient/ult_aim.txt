@@ -1,4 +1,4 @@
-
+Cần forensic thêm xem secret có nằm trong file html thay vì api
 
 Trong log của bạn có bước này:
 
