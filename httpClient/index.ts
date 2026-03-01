@@ -7,6 +7,7 @@ type CookieStore = Map<string, string>;
 type CookieJar = Map<string, CookieStore>;
 
 const ROUTER_LOGIN_URL = "http://186.186.0.1/login";
+const ROUTER_ROOT_URL = "http://186.186.0.1/";
 const CHECK_API_URL = "https://ex.login.net.vn/api-connect/check";
 const AWING_PORTAL_LOGIN_BASE = "http://v1.awingconnect.vn/login";
 const AWING_HARDCODED_SERIAL = "CC:2D:E0:19:00:6C"; // This value is not the same as the gateway MAC nor the BSSID. It comes from the check API response of a real login session and does not change across sessions.
@@ -19,8 +20,10 @@ const AFTER_LOGIN_WAIT_MS = 4000;
 const SKIP_CHECK_API = process.env.AWING_SKIP_CHECK_API === "1";
 const HTTP_TIMEOUT_MS = 12_000;
 const HTTP_RETRY_DELAY_MS = 700;
+const CHECK_API_TIMEOUT_MS = 8000;
 
 type CaptiveState = "ONLINE" | "CAPTIVE" | "ERROR";
+type ExpiryState = "ACTIVE" | "EXPIRED";
 
 const exec = promisify(execCb);
 
@@ -282,25 +285,26 @@ async function getGatewayMacWindows(host: string): Promise<string | null> {
   }
 }
 
-async function checkExpiryByFetch(): Promise<boolean> {
+async function checkExpiryByFetch(): Promise<ExpiryState> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), EXPIRY_TIMEOUT_MS);
 
   try {
-    const res = await fetch(ROUTER_LOGIN_URL, {
+    const res = await fetch(ROUTER_ROOT_URL, {
       method: "GET",
       redirect: "manual",
       signal: controller.signal
     });
 
+    const status = res.status;
     const location = res.headers.get("location") ?? "";
-    if (location.includes("/status")) {
-      return false; // not expired
+    if (status >= 300 && status < 400 && location.includes("/status")) {
+      return "ACTIVE";
     }
 
-    return true; // expired/captive
+    return "EXPIRED";
   } catch {
-    return true;
+    return "EXPIRED";
   } finally {
     clearTimeout(timeout);
   }
@@ -444,14 +448,18 @@ async function resolvePortalLoginUrlViaCheckApi(wifiInfo: Dict) {
     }
   };
 
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CHECK_API_TIMEOUT_MS);
+
   const checkRes = await fetch(CHECK_API_URL, {
     method: "POST",
     headers: {
       "content-type": "application/json",
       referer: "http://186.186.0.1/"
     },
-    body: JSON.stringify(checkPayload)
-  });
+    body: JSON.stringify(checkPayload),
+    signal: controller.signal
+  }).finally(() => clearTimeout(timer));
 
   const checkText = await checkRes.text();
   const checkJson = parseJsonSafe(checkText);
@@ -727,51 +735,61 @@ async function main() {
   let t0: number | null = null;
 
   while (true) {
-    const state = await detectNetwork();
+    try {
+      const state = await detectNetwork();
 
-    if (state === "ONLINE") {
-      if (t0 === null) {
-        t0 = Date.now();
-        console.log("[MAIN] Initial online state, timer started");
+      if (state === "ONLINE") {
+        if (t0 === null) {
+          t0 = Date.now();
+          console.log("[MAIN] Initial online state, timer started");
+        }
+
+        const elapsed = Date.now() - t0;
+        const remaining = RENEW_BEFORE_MS - elapsed;
+
+        if (remaining <= 0) {
+          console.log("[MAIN] 14:50 reached -> checking expiry...");
+          const expiry = await checkExpiryByFetch();
+          console.log("[EXPIRY] Fetch /login ->", expiry);
+
+          if (expiry === "EXPIRED") {
+            console.log("[MAIN] Session expired -> login now");
+            const success = await runLoginFlow();
+            if (success) {
+              t0 = Date.now();
+            }
+          } else if (expiry === "ACTIVE") {
+            console.log("[MAIN] Session still active -> wait 5s and recheck");
+            await sleep(5000);
+            continue;
+          }
+        } else {
+          const remainingSec = Math.floor(remaining / 1000);
+          console.log(`[MAIN] Internet OK, renew in ${remainingSec}s`);
+          await sleep(Math.min(60_000, remaining));
+          continue;
+        }
       }
 
-      const elapsed = Date.now() - t0;
-      const remaining = RENEW_BEFORE_MS - elapsed;
+      if (state === "CAPTIVE") {
+        console.log("[MAIN] Captive detected -> cross-check router session...");
+        const expiry = await checkExpiryByFetch();
 
-      if (remaining <= 0) {
-        console.log("[MAIN] 14:50 reached -> checking expiry...");
-        const expired = await checkExpiryByFetch();
-        console.log("[EXPIRY] Fetch /login -> expired =", expired);
-
-        if (expired) {
-          console.log("[MAIN] Session expired -> login now");
+        if (expiry === "EXPIRED") {
           const success = await runLoginFlow();
           if (success) {
             t0 = Date.now();
           }
         } else {
-          console.log("[MAIN] Not expired yet -> wait 5s and recheck");
-          await sleep(5000);
-          continue;
+          console.log(`[MAIN] Captive probe looks false-positive (${expiry}), skip login this round`);
         }
-      } else {
-        const remainingSec = Math.floor(remaining / 1000);
-        console.log(`[MAIN] Internet OK, renew in ${remainingSec}s`);
-        await sleep(Math.min(60_000, remaining));
-        continue;
       }
-    }
 
-    if (state === "CAPTIVE") {
-      console.log("[MAIN] Captive detected");
-      const success = await runLoginFlow();
-      if (success) {
-        t0 = Date.now();
+      if (state === "ERROR") {
+        console.log("[MAIN] Network check error, will retry...");
       }
-    }
-
-    if (state === "ERROR") {
-      console.log("[MAIN] Network check error, will retry...");
+    } catch (err) {
+      console.warn("[MAIN] Loop iteration error:", err);
     }
 
     await sleep(LOOP_SLEEP_MS);
