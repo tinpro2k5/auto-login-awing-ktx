@@ -120,15 +120,12 @@ nếu bị redirect về /login → mới login
 
 
 password = username
-
 password được nhét inline trong HTML / JS / JSON
-
 password được tạo theo rule đơn giản (ghép chuỗi, base64, hằng số…)
 
 
 
 Mở DevTools → Sources → Ctrl+Shift+F, tìm các từ:
-
 chap
 challenge
 md5
