@@ -10,24 +10,7 @@ function sleep(ms: number) {
 
 const RENEW_BEFORE_MS = 14 * 60_000 + 50_000 // 14m50s
 
-async function checkExpiry(): Promise<boolean> {
-  const { browser, page } = await launchBrowser()
-  try {
-    await page.goto('http://186.186.0.1/login', {
-      waitUntil: 'domcontentloaded',
-      timeout: 10000,
-    })
-    await page.waitForTimeout(300)
-    const url = page.url()
-    const isStatus = url.includes('/status')
-    
-    return !isStatus // true = expired/captive, false = still active
-  } catch {
-    return true // assume expired on error
-  } finally {
-    await browser.close()
-  }
-}
+
 
 async function runLoginFlow(): Promise<boolean> {
   for (let attempt = 1; attempt <= 3; attempt++) {
@@ -77,11 +60,11 @@ async function main() {
 
       if (remaining <= 0) {
         console.log('[MAIN] 14:50 reached → checking expiry...')
-        
+
         const expired = await checkExpiryByFetch()
         console.log('[EXPIRY] Fetch /login → expired =', expired)
 
-        
+
         if (expired) {
           console.log('[MAIN] Session expired → login now')
           const success = await runLoginFlow()
