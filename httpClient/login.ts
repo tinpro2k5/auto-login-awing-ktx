@@ -6,11 +6,19 @@ const ROUTER_LOGIN_URL = "http://186.186.0.1/login";
 const CHECK_API_URL = "https://ex.login.net.vn/api-connect/check";
 const CONNECTIVITY_TEST_URL = "http://connectivitycheck.gstatic.com/generate_204";
 const CONNECTIVITY_TIMEOUT_MS = 3000;
+const EXPIRY_TIMEOUT_MS = 8000;
+const RENEW_BEFORE_MS = 14 * 60_000 + 50_000; // 14m50s
+const LOOP_SLEEP_MS = 10_000;
+const AFTER_LOGIN_WAIT_MS = 4000;
 
 type CaptiveState = "ONLINE" | "CAPTIVE" | "ERROR";
 
 function md5Hex(input: string) {
   return crypto.createHash("md5").update(input, "utf8").digest("hex");
+}
+
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function buildDeviceId() {
@@ -54,6 +62,30 @@ async function detectNetwork(): Promise<CaptiveState> {
     return "ERROR";
   } finally {
     clearTimeout(timer);
+  }
+}
+
+async function checkExpiryByFetch(): Promise<boolean> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), EXPIRY_TIMEOUT_MS);
+
+  try {
+    const res = await fetch(ROUTER_LOGIN_URL, {
+      method: "GET",
+      redirect: "manual",
+      signal: controller.signal
+    });
+
+    const location = res.headers.get("location") ?? "";
+    if (location.includes("/status")) {
+      return false; // not expired
+    }
+
+    return true; // expired/captive
+  } catch {
+    return true;
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
@@ -161,7 +193,7 @@ function findContentAuthenForm(payload: unknown): string | null {
   return walk(payload);
 }
 
-async function main() {
+async function performLoginOnce(): Promise<boolean> {
   console.log("[1] GET router login page...");
   const routerRes = await fetch(ROUTER_LOGIN_URL);
   const routerHtml = await routerRes.text();
@@ -169,7 +201,7 @@ async function main() {
   if (!wifiInfo) {
     if (/you are logged in|\/status/i.test(routerHtml)) {
       console.log("    already online (router says logged in), skip login");
-      return;
+      return true;
     }
     throw new Error("Cannot parse wifiInfo from router login HTML");
   }
@@ -282,6 +314,94 @@ async function main() {
     console.log("    /status:", v2.status, "location:", v2.headers.get("location"));
   } catch (e) {
     console.log("    /status check failed:", e);
+  }
+
+  return state === "ONLINE";
+}
+
+async function runLoginFlow(): Promise<boolean> {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    console.log(`[MAIN] Login attempt ${attempt}/3`);
+
+    try {
+      const immediate = await performLoginOnce();
+      if (immediate) {
+        console.log("[MAIN] Internet unlocked successfully");
+        return true;
+      }
+    } catch (err) {
+      console.warn("[MAIN] Login flow error:", err);
+    }
+
+    await sleep(AFTER_LOGIN_WAIT_MS);
+
+    const after = await detectNetwork();
+    if (after === "ONLINE") {
+      console.log("[MAIN] Internet unlocked successfully");
+      return true;
+    }
+
+    console.warn("[MAIN] Still captive, retrying...");
+  }
+
+  console.error("[MAIN] Failed after 3 attempts");
+  return false;
+}
+
+async function main() {
+  console.log("[MAIN] Starting awing auto-login (httpClient loop mode)");
+
+  let t0: number | null = null;
+
+  while (true) {
+    const state = await detectNetwork();
+
+    if (state === "ONLINE") {
+      if (t0 === null) {
+        t0 = Date.now();
+        console.log("[MAIN] Initial online state, timer started");
+      }
+
+      const elapsed = Date.now() - t0;
+      const remaining = RENEW_BEFORE_MS - elapsed;
+
+      if (remaining <= 0) {
+        console.log("[MAIN] 14:50 reached -> checking expiry...");
+        const expired = await checkExpiryByFetch();
+        console.log("[EXPIRY] Fetch /login -> expired =", expired);
+
+        if (expired) {
+          console.log("[MAIN] Session expired -> login now");
+          const success = await runLoginFlow();
+          if (success) {
+            t0 = Date.now();
+          }
+        } else {
+          console.log("[MAIN] Not expired yet -> wait 5s and recheck");
+          await sleep(5000);
+          continue;
+        }
+      } else {
+        const remainingSec = Math.floor(remaining / 1000);
+        console.log(`[MAIN] Internet OK, renew in ${remainingSec}s`);
+        await sleep(Math.min(60_000, remaining));
+        continue;
+      }
+    }
+
+    if (state === "CAPTIVE") {
+      console.log("[MAIN] Captive detected");
+      const success = await runLoginFlow();
+      if (success) {
+        t0 = Date.now();
+      }
+    }
+
+    if (state === "ERROR") {
+      console.log("[MAIN] Network check error, will retry...");
+    }
+
+    await sleep(LOOP_SLEEP_MS);
   }
 }
 
