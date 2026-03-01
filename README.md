@@ -18,7 +18,7 @@ npx ts-node src/index.ts
 
 ## Cách hoạt động (ngắn gọn)
 1) Phát hiện captive: gọi Google 204 trong [src/network/detect.ts](src/network/detect.ts).
-2) Nếu đang online lâu, kiểm tra sắp hết hạn: gọi /login xem có redirect /status trong [src/network/checkExpiryByFetch.ts](src/network/checkExpiryByFetch.ts).
+2) Nếu đang online lâu, kiểm tra sắp hết hạn: lightweight probe tới `neverssl.com` để detect captive portal không trigger MAC lock trong [src/network/checkExpiryByFetch.ts](src/network/checkExpiryByFetch.ts).
 3) Khi cần login: mở Chromium qua Playwright, chặn tài nguyên nặng nhưng giữ CSS portal trong [src/browser/launcher.ts](src/browser/launcher.ts), rồi click các nút `#logo_button` → `#connectToInternet` trong [src/portal/awing.ts](src/portal/awing.ts).
 4) Sau mỗi lần thử, đo lại trạng thái mạng; tối đa 3 lần/đợt.
 
