@@ -1,0 +1,16 @@
+{
+  "ts": "2026-03-01T09:47:11.816Z",
+  "elapsed": "16.590s",
+  "kind": "request",
+  "resourceType": "document",
+  "method": "POST",
+  "url": "http://186.186.0.1/login",
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded",
+    "origin": "http://v1.awingconnect.vn",
+    "referer": "http://v1.awingconnect.vn/",
+    "upgrade-insecure-requests": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+  },
+  "postData": "username=awing15-15&password=fe690e4e32ddd518b162518c64b55ddb&dst=http%3A%2F%2Fv1.awingconnect.vn%2FSuccess&popup=false"
+}

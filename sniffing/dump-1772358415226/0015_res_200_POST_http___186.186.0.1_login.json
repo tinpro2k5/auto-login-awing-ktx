@@ -1,0 +1,28 @@
+{
+  "ts": "2026-03-01T09:47:11.897Z",
+  "elapsed": "16.671s",
+  "kind": "response",
+  "resourceType": "document",
+  "method": "POST",
+  "url": "http://186.186.0.1/login",
+  "status": 200,
+  "requestHeaders": {
+    "content-type": "application/x-www-form-urlencoded",
+    "origin": "http://v1.awingconnect.vn",
+    "referer": "http://v1.awingconnect.vn/",
+    "upgrade-insecure-requests": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+  },
+  "responseHeaders": {
+    "cache-control": "no-cache",
+    "connection": "Keep-Alive",
+    "content-length": "964",
+    "content-type": "text/html",
+    "date": "Sun, 01 Mar 2026 09:47:09 GMT",
+    "expires": "Mon, 01 Mar 2027 09:47:09 GMT",
+    "last-modified": "Sun, 01 Mar 2026 09:47:09 GMT",
+    "x-frame-options": "sameorigin"
+  },
+  "requestPostData": "username=awing15-15&password=fe690e4e32ddd518b162518c64b55ddb&dst=http%3A%2F%2Fv1.awingconnect.vn%2FSuccess&popup=false",
+  "bodyText": "<!doctype html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <meta http-equiv=\"refresh\" content=\"2; url=http://v1.awingconnect.vn/Success\">\r\n    <meta http-equiv=\"pragma\" content=\"no-cache\">\r\n    <meta http-equiv=\"expires\" content=\"-1\">\r\n    <title>Internet hotspot - Redirect</title>\r\n    <link rel=\"stylesheet\" href=\"css/style.css\">\r\n    <script>\r\n        function startClock() {\r\n            \r\n        location.href = unescape('http%3A%2F%2Fv1.awingconnect.vn%2FSuccess');\r\n        }\r\n\r\n    </script> \r\n</head>\r\n\r\n<body onLoad=\"startClock()\">\r\n    <div class=\"ie-fixMinHeight\">\r\n        <div class=\"main\">\r\n            <div class=\"wrap\">\r\n                <h1>You are logged in</h1>\r\n                <p class=\"info\">If nothing happens, click <a href=\"http://v1.awingconnect.vn/Success\">here</a></p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</body>\r\n\r\n</html>\r\n"
+}

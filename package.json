@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/tinpro2k5/auto-login-awing-ktx#readme",
   "dependencies": {
-    "playwright": "^1.57.0",
+    "abort-controller": "^3.0.0",
     "node-fetch": "^2.7.0",
-    "abort-controller": "^3.0.0"
+    "playwright": "^1.57.0",
+    "undici": "^7.16.0"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",

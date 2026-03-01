@@ -1,0 +1,15 @@
+{
+  "ts": "2026-03-01T09:46:59.754Z",
+  "elapsed": "4.528s",
+  "kind": "request",
+  "resourceType": "xhr",
+  "method": "POST",
+  "url": "http://v1.awingconnect.vn/Home/VerifyUrl",
+  "headers": {
+    "referer": "http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.11.91&userurl=&login_url=http://186.186.0.1/login&chap_id=\\012&chap_challenge=\\050\\245\\217\\371\\224\\311\\277\\056\\001\\315\\222\\374\\151\\002\\365\\152",
+    "x-requested-with": "XMLHttpRequest",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "accept": "*/*"
+  },
+  "postData": null
+}

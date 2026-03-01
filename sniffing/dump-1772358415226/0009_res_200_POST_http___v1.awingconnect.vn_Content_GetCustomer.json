@@ -1,0 +1,117 @@
+{
+  "ts": "2026-03-01T09:46:59.967Z",
+  "elapsed": "4.741s",
+  "kind": "response",
+  "resourceType": "xhr",
+  "method": "POST",
+  "url": "http://v1.awingconnect.vn/Content/GetCustomer",
+  "status": 200,
+  "requestHeaders": {
+    "referer": "http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.11.91&userurl=&login_url=http://186.186.0.1/login&chap_id=\\012&chap_challenge=\\050\\245\\217\\371\\224\\311\\277\\056\\001\\315\\222\\374\\151\\002\\365\\152",
+    "x-requested-with": "XMLHttpRequest",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "accept": "*/*",
+    "content-type": "application/json; charset=UTF-8"
+  },
+  "responseHeaders": {
+    "transfer-encoding": "chunked",
+    "access-control-allow-origin": "*",
+    "content-encoding": "gzip",
+    "date": "Sun, 01 Mar 2026 09:46:57 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "vary": "Accept-Encoding",
+    "server": "Kestrel"
+  },
+  "requestPostData": "{\"token\":\"c0329a4bf890da9282e014dbf8613236858b9836\",\"captiveContext\":{\"campaignData\":{\"sessionId\":\"edc042b8-9260-457b-b2fa-f382ab98047e\",\"macAddress\":\"0A-0F-33-7C-9C-F4\",\"apMac\":\"CC-2D-E0-19-00-6C\",\"placeId\":\"5396312563454782245\",\"domainId\":\"5476089696408447131\",\"url\":\"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.11.91&userurl=&login_url=http://186.186.0.1/login&chap_id=\\\\012&chap_challenge=\\\\050\\\\245\\\\217\\\\371\\\\224\\\\311\\\\277\\\\056\\\\001\\\\315\\\\222\\\\374\\\\151\\\\002\\\\365\\\\152\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\",\"campaignId\":\"0\",\"campaignGroupId\":0,\"campaignAdId\":0,\"campaignType\":0,\"isNetworkCampaign\":false,\"loginId\":\"0\",\"loginHtml\":null,\"welcomeId\":\"0\",\"welcomeHtml\":null},\"customerActions\":[0],\"domain\":{\"domainId\":\"5476089696408447131\",\"domainTariffId\":1,\"directoryPath\":\".0.90.5476089696408447131.\",\"name\":\"Wi-Mesh\",\"joinNetwork\":true,\"description\":\"\",\"license\":\"AvX0ZtUdP4wukxT5af24a9BKVEZih4ieKcQUcHFTwuadEz9v97xzIgfKpjckguFxzdIhS2IfysNUsEgfXzrMQNQZBThUtOQEI62eBW6BOrIjP0LkhTpxZa/Q/7YPzRVte5Z1YN0mQwgAodQN6/hFfu3/fDkTBBN25E+gk9GeyqtQChyQHp9/jN+O9ehEV4m8nHBQ1wf1jf0QwB66pCesz/tD3rlTMmDvxkGe9+OjB160G2Wy8eCZFIGGC4Cr+SJ5Tnb0CLatO1DHvvI9NFjgAEd/EiGJqEKwamrQOgIGjRIb3g3IpcW/cq4ZErUQSsE1JNvhUhC7FHdCzBAV9QytCw==\",\"requiredCustomerData\":null,\"url\":\"\",\"customizeCustomerFormPath\":\"\",\"contactPhoneNumber\":\"\"},\"customer\":null,\"placeCustomerInfoCollections\":[{\"id\":18710,\"placeId\":\"5396312563454782245\",\"placeName\":\"WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A\",\"placeDirectoryPath\":\".0.90.5476089696408447131.5225343784034513445.5396312563454782245.\",\"field\":\"Gender\",\"timeReminder\":0},{\"id\":18711,\"placeId\":\"5396312563454782245\",\"placeName\":\"WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A\",\"placeDirectoryPath\":\".0.90.5476089696408447131.5225343784034513445.5396312563454782245.\",\"field\":\"Birthday\",\"timeReminder\":0}],\"pageViewEvents\":[],\"customerRequiredFields\":[],\"contentAuthenForm\":\"<form name=\\\"mikrotik\\\" id=\\\"frmLogin\\\" action=\\\"http://186.186.0.1/login\\\" method=\\\"post\\\" style=\\\"display: none;\\\">\\n    <input type=\\\"hidden\\\" name=\\\"username\\\" value=\\\"awing15-15\\\"/>\\n    <input type=\\\"hidden\\\" name=\\\"password\\\" value=\\\"fe690e4e32ddd518b162518c64b55ddb\\\" />\\n    <input type=\\\"hidden\\\" name=\\\"dst\\\" value=\\\"http://v1.awingconnect.vn/Success\\\" />\\n    <input type=\\\"hidden\\\" name=\\\"popup\\\" value=\\\"false\\\" />\\n</form>\\n<script>\\n\\n    var authenticationProfileOptionals = [];\\n    function bindOptionalProfileByIndex(idx) {\\n        if (authenticationProfileOptionals.length > 0) {\\n            var mikrotikParamModel = JSON.parse(authenticationProfileOptionals[idx].Params);\\n            $(\\\"input[name=username]\\\").val(mikrotikParamModel.Username);\\n            $(\\\"input[name=password]\\\").val(mikrotikParamModel.Password);\\n        }\\n    }\\n    function bindOptionalProfileByName(name) {\\n        if (authenticationProfileOptionals.length > 0) {\\n            authenticationProfileOptionals.forEach(function (el) {\\n                if (el.Name.toLowerCase() == name.toLowerCase()) {\\n                    var mikrotikParamModel = JSON.parse(profileOptional.Params);\\n                    $(\\\"input[name=username]\\\").val(mikrotikParamModel.Username);\\n                    $(\\\"input[name=password]\\\").val(mikrotikParamModel.Password);\\n                }\\n            });\\n        }\\n    }\\n    awingStateMachineContext.setAuthenType(awingConstants.AUTHEN_TYPE.FORM);\\n</script>\\n\",\"createdDate\":\"2026-03-01T16:46:57.2352399+07:00\"}}",
+  "bodyText": "{\"token\":\"ee04e6cd66cbb2b2da54a9228ff7b9a6bad50dc8\",\"captiveContext\":{\"campaignData\":{\"sessionId\":\"edc042b8-9260-457b-b2fa-f382ab98047e\",\"macAddress\":\"0A-0F-33-7C-9C-F4\",\"apMac\":\"CC-2D-E0-19-00-6C\",\"placeId\":\"5396312563454782245\",\"domainId\":\"5476089696408447131\",\"url\":\"http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.11.91&userurl=&login_url=http://186.186.0.1/login&chap_id=\\\\012&chap_challenge=\\\\050\\\\245\\\\217\\\\371\\\\224\\\\311\\\\277\\\\056\\\\001\\\\315\\\\222\\\\374\\\\151\\\\002\\\\365\\\\152\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\",\"campaignId\":\"0\",\"campaignGroupId\":0,\"campaignAdId\":0,\"campaignType\":0,\"isNetworkCampaign\":false,\"loginId\":\"0\",\"loginHtml\":null,\"welcomeId\":\"0\",\"welcomeHtml\":null},\"customerActions\":[0,1],\"domain\":{\"domainId\":\"5476089696408447131\",\"domainTariffId\":1,\"directoryPath\":\".0.90.5476089696408447131.\",\"name\":\"Wi-Mesh\",\"joinNetwork\":true,\"description\":\"\",\"license\":\"AvX0ZtUdP4wukxT5af24a9BKVEZih4ieKcQUcHFTwuadEz9v97xzIgfKpjckguFxzdIhS2IfysNUsEgfXzrMQNQZBThUtOQEI62eBW6BOrIjP0LkhTpxZa/Q/7YPzRVte5Z1YN0mQwgAodQN6/hFfu3/fDkTBBN25E+gk9GeyqtQChyQHp9/jN+O9ehEV4m8nHBQ1wf1jf0QwB66pCesz/tD3rlTMmDvxkGe9+OjB160G2Wy8eCZFIGGC4Cr+SJ5Tnb0CLatO1DHvvI9NFjgAEd/EiGJqEKwamrQOgIGjRIb3g3IpcW/cq4ZErUQSsE1JNvhUhC7FHdCzBAV9QytCw==\",\"requiredCustomerData\":null,\"url\":\"\",\"customizeCustomerFormPath\":\"\",\"contactPhoneNumber\":\"\"},\"customer\":{\"macAddress\":\"0A-0F-33-7C-9C-F4\",\"name\":null,\"phone\":null,\"gender\":false,\"birthday\":{\"seconds\":\"1072890000\",\"nanos\":0},\"email\":null,\"device\":{\"deviceName\":\"Windows\",\"brandName\":\"Microsoft\",\"deviceCode\":\"PC\",\"os\":\"Windows NT\",\"osValue\":100,\"language\":\"en-US\"},\"createdDate\":{\"seconds\":\"1766233512\",\"nanos\":370000000},\"lastReminderDate\":{\"seconds\":\"1766233513\",\"nanos\":0},\"reminderCount\":1},\"placeCustomerInfoCollections\":[{\"id\":18710,\"placeId\":\"5396312563454782245\",\"placeName\":\"WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A\",\"placeDirectoryPath\":\".0.90.5476089696408447131.5225343784034513445.5396312563454782245.\",\"field\":\"Gender\",\"timeReminder\":0},{\"id\":18711,\"placeId\":\"5396312563454782245\",\"placeName\":\"WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A\",\"placeDirectoryPath\":\".0.90.5476089696408447131.5225343784034513445.5396312563454782245.\",\"field\":\"Birthday\",\"timeReminder\":0}],\"pageViewEvents\":[],\"customerRequiredFields\":[],\"contentAuthenForm\":\"<form name=\\\"mikrotik\\\" id=\\\"frmLogin\\\" action=\\\"http://186.186.0.1/login\\\" method=\\\"post\\\" style=\\\"display: none;\\\">\\n    <input type=\\\"hidden\\\" name=\\\"username\\\" value=\\\"awing15-15\\\"/>\\n    <input type=\\\"hidden\\\" name=\\\"password\\\" value=\\\"fe690e4e32ddd518b162518c64b55ddb\\\" />\\n    <input type=\\\"hidden\\\" name=\\\"dst\\\" value=\\\"http://v1.awingconnect.vn/Success\\\" />\\n    <input type=\\\"hidden\\\" name=\\\"popup\\\" value=\\\"false\\\" />\\n</form>\\n<script>\\n\\n    var authenticationProfileOptionals = [];\\n    function bindOptionalProfileByIndex(idx) {\\n        if (authenticationProfileOptionals.length > 0) {\\n            var mikrotikParamModel = JSON.parse(authenticationProfileOptionals[idx].Params);\\n            $(\\\"input[name=username]\\\").val(mikrotikParamModel.Username);\\n            $(\\\"input[name=password]\\\").val(mikrotikParamModel.Password);\\n        }\\n    }\\n    function bindOptionalProfileByName(name) {\\n        if (authenticationProfileOptionals.length > 0) {\\n            authenticationProfileOptionals.forEach(function (el) {\\n                if (el.Name.toLowerCase() == name.toLowerCase()) {\\n                    var mikrotikParamModel = JSON.parse(profileOptional.Params);\\n                    $(\\\"input[name=username]\\\").val(mikrotikParamModel.Username);\\n                    $(\\\"input[name=password]\\\").val(mikrotikParamModel.Password);\\n                }\\n            });\\n        }\\n    }\\n    awingStateMachineContext.setAuthenType(awingConstants.AUTHEN_TYPE.FORM);\\n</script>\\n\",\"createdDate\":\"2026-03-01T16:46:57.2352399+07:00\"}}",
+  "bodyJson": {
+    "token": "ee04e6cd66cbb2b2da54a9228ff7b9a6bad50dc8",
+    "captiveContext": {
+      "campaignData": {
+        "sessionId": "edc042b8-9260-457b-b2fa-f382ab98047e",
+        "macAddress": "0A-0F-33-7C-9C-F4",
+        "apMac": "CC-2D-E0-19-00-6C",
+        "placeId": "5396312563454782245",
+        "domainId": "5476089696408447131",
+        "url": "http://v1.awingconnect.vn/login?serial=CC:2D:E0:19:00:6C&client_mac=0A:0F:33:7C:9C:F4&client_ip=186.186.11.91&userurl=&login_url=http://186.186.0.1/login&chap_id=\\012&chap_challenge=\\050\\245\\217\\371\\224\\311\\277\\056\\001\\315\\222\\374\\151\\002\\365\\152",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+        "campaignId": "0",
+        "campaignGroupId": 0,
+        "campaignAdId": 0,
+        "campaignType": 0,
+        "isNetworkCampaign": false,
+        "loginId": "0",
+        "loginHtml": null,
+        "welcomeId": "0",
+        "welcomeHtml": null
+      },
+      "customerActions": [
+        0,
+        1
+      ],
+      "domain": {
+        "domainId": "5476089696408447131",
+        "domainTariffId": 1,
+        "directoryPath": ".0.90.5476089696408447131.",
+        "name": "Wi-Mesh",
+        "joinNetwork": true,
+        "description": "",
+        "license": "AvX0ZtUdP4wukxT5af24a9BKVEZih4ieKcQUcHFTwuadEz9v97xzIgfKpjckguFxzdIhS2IfysNUsEgfXzrMQNQZBThUtOQEI62eBW6BOrIjP0LkhTpxZa/Q/7YPzRVte5Z1YN0mQwgAodQN6/hFfu3/fDkTBBN25E+gk9GeyqtQChyQHp9/jN+O9ehEV4m8nHBQ1wf1jf0QwB66pCesz/tD3rlTMmDvxkGe9+OjB160G2Wy8eCZFIGGC4Cr+SJ5Tnb0CLatO1DHvvI9NFjgAEd/EiGJqEKwamrQOgIGjRIb3g3IpcW/cq4ZErUQSsE1JNvhUhC7FHdCzBAV9QytCw==",
+        "requiredCustomerData": null,
+        "url": "",
+        "customizeCustomerFormPath": "",
+        "contactPhoneNumber": ""
+      },
+      "customer": {
+        "macAddress": "0A-0F-33-7C-9C-F4",
+        "name": null,
+        "phone": null,
+        "gender": false,
+        "birthday": {
+          "seconds": "1072890000",
+          "nanos": 0
+        },
+        "email": null,
+        "device": {
+          "deviceName": "Windows",
+          "brandName": "Microsoft",
+          "deviceCode": "PC",
+          "os": "Windows NT",
+          "osValue": 100,
+          "language": "en-US"
+        },
+        "createdDate": {
+          "seconds": "1766233512",
+          "nanos": 370000000
+        },
+        "lastReminderDate": {
+          "seconds": "1766233513",
+          "nanos": 0
+        },
+        "reminderCount": 1
+      },
+      "placeCustomerInfoCollections": [
+        {
+          "id": 18710,
+          "placeId": "5396312563454782245",
+          "placeName": "WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A",
+          "placeDirectoryPath": ".0.90.5476089696408447131.5225343784034513445.5396312563454782245.",
+          "field": "Gender",
+          "timeReminder": 0
+        },
+        {
+          "id": 18711,
+          "placeId": "5396312563454782245",
+          "placeName": "WI-MESH_HCM - Đại Học Quốc Gia TP HCM_Payment - KTX  A",
+          "placeDirectoryPath": ".0.90.5476089696408447131.5225343784034513445.5396312563454782245.",
+          "field": "Birthday",
+          "timeReminder": 0
+        }
+      ],
+      "pageViewEvents": [],
+      "customerRequiredFields": [],
+      "contentAuthenForm": "<form name=\"mikrotik\" id=\"frmLogin\" action=\"http://186.186.0.1/login\" method=\"post\" style=\"display: none;\">\n    <input type=\"hidden\" name=\"username\" value=\"awing15-15\"/>\n    <input type=\"hidden\" name=\"password\" value=\"fe690e4e32ddd518b162518c64b55ddb\" />\n    <input type=\"hidden\" name=\"dst\" value=\"http://v1.awingconnect.vn/Success\" />\n    <input type=\"hidden\" name=\"popup\" value=\"false\" />\n</form>\n<script>\n\n    var authenticationProfileOptionals = [];\n    function bindOptionalProfileByIndex(idx) {\n        if (authenticationProfileOptionals.length > 0) {\n            var mikrotikParamModel = JSON.parse(authenticationProfileOptionals[idx].Params);\n            $(\"input[name=username]\").val(mikrotikParamModel.Username);\n            $(\"input[name=password]\").val(mikrotikParamModel.Password);\n        }\n    }\n    function bindOptionalProfileByName(name) {\n        if (authenticationProfileOptionals.length > 0) {\n            authenticationProfileOptionals.forEach(function (el) {\n                if (el.Name.toLowerCase() == name.toLowerCase()) {\n                    var mikrotikParamModel = JSON.parse(profileOptional.Params);\n                    $(\"input[name=username]\").val(mikrotikParamModel.Username);\n                    $(\"input[name=password]\").val(mikrotikParamModel.Password);\n                }\n            });\n        }\n    }\n    awingStateMachineContext.setAuthenType(awingConstants.AUTHEN_TYPE.FORM);\n</script>\n",
+      "createdDate": "2026-03-01T16:46:57.2352399+07:00"
+    }
+  }
+}
